@@ -2,11 +2,39 @@
 <head>
 	<script src="../canvas-scratch.js"></script>
 	<style>
-	
+		body {
+			font: 13px Tahoma, sans-serif;
+		}
+
+		#wrapper {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			background: aliceblue;
+		}
+
+		#under {
+		    position: absolute;
+		    top: 50px;
+		    left: 0;
+		    width: 100%;
+		    font-size: 37px;
+		    text-align: center;
+		    color: darkorange;
+		}
+
+		#scratch {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 	</style>
 </head>
 <body>
-	<canvas id="scratch"></canvas>
+	<div id="wrapper">
+		<div id="under">You won<br>$1 000 000</div>
+		<canvas id="scratch"></canvas>
+	</div>
 	<div>Percent: <span id="percent"></span></div>
 	<div>Completed: <span id="completed">no</span></div>
 	<div>Timeout: <span id="timeout">no</span></div>

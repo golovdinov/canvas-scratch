@@ -1,61 +1,61 @@
 <html>
 <head>
-	<script src="../canvas-scratch.js"></script>
-	<style>
-		body {
-			font: 13px Tahoma, sans-serif;
-		}
+    <script src="../canvas-scratch.js"></script>
+    <style>
+        body {
+            font: 13px Tahoma, sans-serif;
+        }
 
-		#wrapper {
-			position: relative;
-			width: 200px;
-			height: 200px;
-			background: aliceblue;
-		}
+        #wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: aliceblue;
+        }
 
-		#under {
-		    position: absolute;
-		    top: 50px;
-		    left: 0;
-		    width: 100%;
-		    font-size: 37px;
-		    text-align: center;
-		    color: darkorange;
-		}
+        #under {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            font-size: 37px;
+            text-align: center;
+            color: darkorange;
+        }
 
-		#scratch {
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-	</style>
+        #scratch {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
 </head>
 <body>
-	<div id="wrapper">
-		<div id="under">You won<br>$1 000 000</div>
-		<div id="scratch"></div>
-	</div>
-	<div>Percent: <span id="percent"></span></div>
-	<div>Completed: <span id="completed">no</span></div>
-	
-	<script>
-	(function() {
-		var percent = document.getElementById('percent');
+    <div id="wrapper">
+        <div id="under">You won<br>$1 000 000</div>
+        <div id="scratch"></div>
+    </div>
+    <div>Percent: <span id="percent"></span></div>
+    <div>Completed: <span id="completed">no</span></div>
+    
+    <script>
+    (function() {
+        var percent = document.getElementById('percent');
 
-		scratch({
-			wrapper: document.getElementById('scratch'),
-			imageUrl: 'scratch.jpg',
-			lineWidth: 60,
-			mode: scratch.MODE_WITHOUT_MOUSEDOWN,
-			onInit: function() {},
-			onScratch: function(e) {
-				percent.innerText = e.percent+'%';
-			},
-			onComplete: function() {
-				document.getElementById('completed').innerText = 'yes';
-			}
-		});
-	})();
-	</script>
+        scratch({
+            wrapper: document.getElementById('scratch'),
+            imageUrl: 'scratch.jpg',
+            lineWidth: 60,
+            mode: scratch.MODE_WITHOUT_MOUSEDOWN,
+            onInit: function() {},
+            onScratch: function(e) {
+                percent.innerText = e.percent+'%';
+            },
+            onComplete: function() {
+                document.getElementById('completed').innerText = 'yes';
+            }
+        });
+    })();
+    </script>
 </body>
 </html>

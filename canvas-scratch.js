@@ -43,8 +43,8 @@
 	        return new Scratch(config);
 	    }
 
+	    this.wrapper 		= config.wrapper;
 	    this.imageUrl       = config.imageUrl;
-	    this.maincanvas     = config.canvas;
 	    this.lineWidth      = config.lineWidth;
 	    this.onImagesLoaded = config.onImagesLoaded;
 	    this.onScratch      = config.onScratch;
@@ -71,9 +71,11 @@
 	};
 
 	Scratch.prototype.init = function() {
-	    var c = this.maincanvas;
+		var c = this.maincanvas = document.createElement('canvas');
 	    c.width = this.image.width;
 	    c.height = this.image.height;
+
+	    this.wrapper.appendChild(c);
 
 	    this.drawcanvas = document.createElement('canvas');
 	    this.drawcanvas.width = c.width;

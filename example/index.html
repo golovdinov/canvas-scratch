@@ -33,7 +33,7 @@
 <body>
 	<div id="wrapper">
 		<div id="under">You won<br>$1 000 000</div>
-		<canvas id="scratch"></canvas>
+		<div id="scratch"></div>
 	</div>
 	<div>Percent: <span id="percent"></span></div>
 	<div>Completed: <span id="completed">no</span></div>
@@ -43,8 +43,8 @@
 		var percent = document.getElementById('percent');
 
 		scratch({
+			wrapper: document.getElementById('scratch'),
 			imageUrl: 'scratch.jpg',
-			canvas: document.getElementById('scratch'),
 			lineWidth: 60,
 			mode: scratch.MODE_WITHOUT_MOUSEDOWN,
 			onInit: function() {},

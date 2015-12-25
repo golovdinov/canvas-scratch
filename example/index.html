@@ -37,7 +37,6 @@
 	</div>
 	<div>Percent: <span id="percent"></span></div>
 	<div>Completed: <span id="completed">no</span></div>
-	<div>Timeout: <span id="timeout">no</span></div>
 	
 	<script>
 	(function() {
@@ -47,12 +46,8 @@
 			imageUrl: 'scratch.jpg',
 			canvas: document.getElementById('scratch'),
 			lineWidth: 60,
-			timeout: 4000,
 			mode: scratch.MODE_WITHOUT_MOUSEDOWN,
 			onInit: function() {},
-			onTimeout: function() {
-				document.getElementById('timeout').innerText = 'yes';
-			},
 			onScratch: function(e) {
 				percent.innerText = e.percent+'%';
 			},

@@ -46,8 +46,6 @@
 	    this.imageUrl       = config.imageUrl;
 	    this.maincanvas     = config.canvas;
 	    this.lineWidth      = config.lineWidth;
-	    this.timeout        = config.timeout;
-	    this.onTimeout      = config.onTimeout;
 	    this.onImagesLoaded = config.onImagesLoaded;
 	    this.onScratch      = config.onScratch;
 	    this.onComplete     = config.onComplete;
@@ -107,10 +105,6 @@
 	        	((this.mode === Scratch.MODE_WITH_MOUSEDOWN) && !this.mouseDown)
         	) {
 	            return true;
-	        }
-
-	        if(!this.timer && this.timeout && this.onTimeout) {
-	            this.timer = setTimeout(this.onTimeout, this.timeout);
 	        }
 
 	        var local = getLocalCoords(c, e);
@@ -181,12 +175,19 @@
 	    var percent = this.getPercent();
 
 	    if(this.onScratch) {
-	    	this.onScratch({ x: x, y: y, percent: percent });
+	    	this.onScratch({
+	    		x: x,
+	    		y: y,
+	    		percent: percent
+	    	});
     	}
 
-	    if(percent >= 100 && this.onComplete) {
+	    if(percent >= 100) {
 	    	this.completed = true;
-	        this.onComplete();
+
+	    	if(this.onComplete) {
+	        	this.onComplete();
+	        }
 	    }
 	};
 
@@ -195,16 +196,12 @@
 	    var imageData;
 	    var totalPixels = this.maincanvas.width * this.maincanvas.height;
 
-	    //try {
-	    	imageData = this.maincanvas.getContext('2d').getImageData(
-		        0,
-		        0,
-		        this.maincanvas.width,
-		        this.maincanvas.height
-		    );
-	    //} catch(e) {
-	    //	return 0;
-	    //}
+	    imageData = this.maincanvas.getContext('2d').getImageData(
+	        0,
+	        0,
+	        this.maincanvas.width,
+	        this.maincanvas.height
+	    );
 	  
 		for (var i = 0, ii = imageData.data.length; i < ii; i = i + 4) {
 			if (

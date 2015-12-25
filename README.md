@@ -5,6 +5,11 @@ JavaScript plugin for scratch effect
 
 Demo
 ---------
-To run a demo on your local machine, you need to use a web server.
+You can faced with Cross-Origin issue while running a demo on your local machine.
+So you have to run a demo on any web server.
 
-For example, you can use simple [Node.js HTTP Server](https://www.npmjs.com/package/http-server)
+For example, you can run simple [Node.js HTTP Server](https://www.npmjs.com/package/http-server)
+
+    npm install http-server -g
+
+    http-server

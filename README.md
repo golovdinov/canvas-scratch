@@ -41,7 +41,7 @@ JavaScript plugin for scratch effect.
 
 ## Browser requirements
 
-* Canvas support
+* [Canvas support](http://caniuse.com/#feat=canvas)
 
 ## Run an example
 
@@ -53,3 +53,7 @@ For example, you can run simple [Node.js HTTP Server](https://www.npmjs.com/pack
     npm install http-server -g
 
     http-server
+
+## License
+
+MIT

@@ -4,39 +4,50 @@ JavaScript plugin for scratch effect.
 ![Demo](/demo.gif)
 
 ## Usage
-    scratch({
-        wrapper: document.getElementById('scratch'),
-        imageUrl: 'scratch.jpg',
-        lineWidth: 60,
-        mode: scratch.MODE_WITHOUT_MOUSEDOWN,
-        onInit: function() { ... },
-        onComplete: function() { ... },
-        onScratch: function(e) {
-            // e.percent
-        }
-    });
+
+### Install:
+
+    bower install canvas-scratch
+
+...or manual.
+
+### Example:
+
+```javascript
+scratch({
+    wrapper: document.getElementById('scratch'),
+    imageUrl: 'scratch.jpg',
+    lineWidth: 60,
+    mode: scratch.MODE_WITHOUT_MOUSEDOWN,
+    onInit: function() { ... },
+    onComplete: function() { ... },
+    onScratch: function(e) {
+        // e.percent
+    }
+});
+```
 
 ### Including:
 * As AMD or CommonJS module.
-* Traditional script including makes <var>scratch</var> golobal.
+* Traditional <code>&lt;script src="..."&gt;</code> including makes <var>scratch</var> golobal.
 
-## Config
+## Configuration
 
-<b>wrapper</b> (required) - a DOM element where the canvas will be placed.
+<i>DOMElement</i> <b>wrapper</b> (required) - a DOM element where the canvas will be placed.
 
-<b>imageUrl</b> (required) - path to an image that will be scratched. Canvas will be resized to the image width & height.
+<i>string</i> <b>imageUrl</b> (required) - path to an image that will be scratched. Canvas will be resized to the image width & height.
 
-<b>lineWidth</b> (required) - integer.
+<i>int</i> <b>lineWidth</b> (required)
 
 <b>mode</b> (required):
 * scratch.MODE_WITH_MOUSEDOWN
 * scratch.MODE_WITHOUT_MOUSEDOWN
 
-<b>onInit</b> (optional) - called when the image is loaded and canvas created.
+<i>function</i> <b>onInit</b> (optional) - called when the image is loaded and canvas created.
 
-<b>onComplete</b> (optional) - called when user scratched the hole image.
+<i>function</i> <b>onComplete</b> (optional) - called when user scratched the hole image.
 
-<b>onScratch(event)</b> (optional) - called every scratch movement. <var>event</var> object contains <var>x</var>, <var>y</var> and <var>percent</var> properties.
+<i>function</i> <b>onScratch(event)</b> (optional) - called every scratch movement. <var>event</var> object contains <var>x</var>, <var>y</var> and <var>percent</var> properties.
 
 
 ## Browser requirements
